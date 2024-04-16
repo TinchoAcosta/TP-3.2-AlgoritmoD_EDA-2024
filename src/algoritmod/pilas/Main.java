@@ -1,5 +1,7 @@
 package algoritmod.pilas;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -7,20 +9,8 @@ public class Main {
         Pila pila2 = new Pila();
         Pila pila3 = new Pila();
         
-        pila1.push(-3);
-        pila1.push(0);
-        pila1.push(1);
-        pila1.push(2);
-        pila1.push(3);
-        pila1.push(4);
-        
-        pila2.push(3);
-        pila2.push(3);
-        pila2.push(6);
-        pila2.push(7);
-        pila2.push(8);
-        pila2.push(10);
-        pila2.push(22);
+        cargarPila(pila1);
+        cargarPila(pila2);
 
         
         while(!pila1.pilaVacia() || !pila2.pilaVacia()){
@@ -48,6 +38,21 @@ public class Main {
         }
         
         pila3.mostrarPila();
+    }
+
+    private static void cargarPila(Pila pila) {
+        Scanner leer = new Scanner(System.in);
+        int aux=0;
+        while(aux!=-1){
+            System.out.println("Indique el valor que desee agregar a la pila (DE MENOR A MAYOR):");
+            pila.push(leer.nextInt());
+            System.out.println("Numero guardado.");
+            System.out.println("Si desea terminar ingrese -1 a continuación");
+            aux=leer.nextInt();
+        }
+        
+        
+        
     }
     
 }
